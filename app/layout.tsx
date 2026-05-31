@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Footer from "./_Components/Footer/Footer";
+import Navbar from "./_Components/Navbar/Navbar";
+import TopBar from "./_Components/TopBar/TopBar";
+import { WishlistProvider } from "./context/WishlistContext";
+import { CartProvider } from "./context/CartContext";
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +32,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+      >
+        <WishlistProvider>
+          <CartProvider>
+            <TopBar />
+            <Navbar />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Toaster/>
+            <Footer />
+          </CartProvider>
+        </WishlistProvider>
+      </body>
     </html>
   );
 }

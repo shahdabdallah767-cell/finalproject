@@ -19,7 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "_/*": ["./src/*"],
+      "@images/*":["./src/finalProject images-20260529T151209Z-3-001/images/*" , "./public/*"]
     }
   },
   "include": [
