@@ -23,8 +23,8 @@ export default async function productDetails({ params }: { params: Promise<{ id:
                     />
                 </div>
                 <div className='flex gap-2'>
-                    {productDetails?.images.map((img: string, index: number) => (
-                        <img key={index} className='w-1/6 mt-3' src={img} alt={productDetails.title} />
+                    {(productDetails?.image as string[])?.map((img: string, index: number) => (
+                        <img key={index} className='w-1/6 mt-3' src={img} alt={productDetails?.title} />
                     ))}
                 </div>
             </div>

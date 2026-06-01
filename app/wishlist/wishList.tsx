@@ -15,8 +15,7 @@ export default function WishlistPage() {
         async function fetchWishlistProducts() {
             setLoading(true);
             try {
-                const allProducts = await getAllProducts();
-                // Filter products that are in the wishlist
+                const allProducts = await getAllProducts() ?? [];               
                 const filtered = allProducts.filter((product: ProductType) => 
                     wishlist.includes(product.id)
                 );

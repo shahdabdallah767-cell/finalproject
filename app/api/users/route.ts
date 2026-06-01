@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function Get(req:NextRequest){
+export function GET(req:NextRequest){
 
 
     const users=[
